@@ -1,4 +1,4 @@
-FROM ghcr.io/doridian/sni-vhost-proxy/sni-vhost-proxy:latest
+FROM ghcr.io/foxdenhome/sni-vhost-proxy/sni-vhost-proxy:latest
 
 COPY config.yml /config.yml
 
