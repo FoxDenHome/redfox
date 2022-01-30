@@ -55,3 +55,11 @@ volumes:
   syncthing_data: {}
   webdav_config: {}
   webdav_data: {}
+
+networks:
+  default:
+    enable_ipv6: true
+    ipam:
+      config:
+        - subnet: fdd8:2357:cb1b:acf4::/64
+          gateway: fdd8:2357:cb1b:acf4::1
