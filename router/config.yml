@@ -7,10 +7,13 @@ defaults:
     https: 443
 aliases:
   nas: 10.2.11.1
+  grafana: 10.2.11.5
   homeassistant: 10.2.12.2
   spaceage-web: 10.3.10.5
   foxcaves: 10.3.10.1
 hosts:
+  grafana.foxden.network:
+    target: grafana
   nas.foxden.network:
     target: nas
   homeassistant.foxden.network:
