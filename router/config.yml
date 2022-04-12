@@ -11,6 +11,7 @@ aliases:
   homeassistant: 10.2.12.2
   spaceage-web: 10.3.10.5
   foxcaves: 10.3.10.1
+  tasks: 10.3.10.8
 hosts:
   grafana.foxden.network:
     target: grafana
@@ -18,6 +19,8 @@ hosts:
     target: nas
   homeassistant.foxden.network:
     target: homeassistant
+  tasks.foxden.network:
+    target: tasks
   syncthing.doridian.net:
     target: webdav
   api.spaceage.mp:
