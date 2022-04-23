@@ -1,6 +1,7 @@
 FROM alpine
 
-RUN wget -4 -O /caddy 'https://caddyserver.com/api/download?os=linux&arch=amd64&p=github.com%2Fmholt%2Fcaddy-webdav' && chmod +x /caddy
+ADD 'https://caddyserver.com/api/download?os=linux&arch=amd64&p=github.com%2Fmholt%2Fcaddy-webdav' /caddy
+RUN chmod +x /caddy
 COPY Caddyfile /Caddyfile
 
 ENV XDG_DATA_HOME=/data
