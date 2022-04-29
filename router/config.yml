@@ -39,7 +39,5 @@ hosts:
     target: foxcaves
   www.foxcav.es:
     target: foxcaves
-  f0x.es:
-    target: foxcaves
-  www.f0x.es:
+  i.f0x.es:
     target: foxcaves
