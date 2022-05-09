@@ -2,7 +2,7 @@ services:
   router:
     build: router
     restart: always
-    init: yes
+    init: true
     ports:
     - 80:80
     - 443:443
