@@ -1,18 +1,23 @@
 defaults:
-  routes:
-    http: 127.0.0.1:8080
-    https: 127.0.0.1:8443
   ports:
     http: 80
     https: 443
 aliases:
-  nas: 10.2.11.1
-  grafana: 10.2.11.5
-  homeassistant: 10.2.12.2
-  spaceage-web: 10.3.10.5
-  foxcaves: 10.3.10.1
-  tasks: 10.3.10.8
+  nas:
+    target: 10.2.11.1
+  grafana:
+    target: 10.2.11.5
+  homeassistant:
+    target: 10.2.12.2
+  spaceage-web:
+    target: 10.3.10.5
+  foxcaves:
+    target: 10.3.10.1
+  tasks:
+    target: 10.3.10.8
 hosts:
+  __default__:
+    target: 127.0.0.1
   grafana.foxden.network:
     target: grafana
   nas.foxden.network:
