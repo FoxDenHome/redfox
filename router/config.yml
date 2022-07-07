@@ -12,7 +12,6 @@ aliases:
   spaceage-web: 10.3.10.5
   foxcaves: 10.3.10.1
   tasks: 10.3.10.8
-  mastodon: 10.3.10.9
 hosts:
   grafana.foxden.network:
     target: grafana
@@ -40,17 +39,7 @@ hosts:
     target: foxcaves
   www.foxcav.es:
     target: foxcaves
-  i.f0x.es:
-    target: foxcaves
   f0x.es:
-    target: mastodon
+    target: foxcaves
   www.f0x.es:
-    target: mastodon
-  assets.f0x.es:
-    target: mastodon
-  streaming.f0x.es:
-    target: mastodon
-  crossposter.f0x.es:
-    target: mastodon
-  mastodon.f0x.es:
-    target: mastodon
+    target: foxcaves
