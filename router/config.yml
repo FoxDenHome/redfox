@@ -18,6 +18,9 @@ aliases:
 hosts:
   __default__:
     target: 127.0.0.1
+    ports:
+      http: 8080
+      https: 8443
   grafana.foxden.network:
     target: grafana
   nas.foxden.network:
