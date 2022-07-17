@@ -18,7 +18,7 @@ services:
     ports:
       - 8384:8384
       - 22000:22000
-      - 22000/udp:22000/udp
+      - 22000/udp:22000
     environment:
       PUID: 1000
       PGID: 1000
