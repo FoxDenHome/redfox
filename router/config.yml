@@ -17,7 +17,7 @@ aliases:
     target: 10.3.10.8
 hosts:
   __default__:
-    target: 127.0.0.1
+    target: host.docker.internal
     ports:
       http: 8080
       https: 8443
