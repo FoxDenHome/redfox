@@ -65,5 +65,5 @@ networks:
     enable_ipv6: true
     ipam:
       config:
-        - subnet: fdd8:2357:cb1b:acf4::/64
-          gateway: fdd8:2357:cb1b:acf4::1
+        - subnet: 2a0e:8f02:21c0:e621::/64
+          gateway: 2a0e:8f02:21c0:e621::1
