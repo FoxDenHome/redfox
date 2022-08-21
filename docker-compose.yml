@@ -24,6 +24,9 @@ services:
       - 8384:8384
       - 22000:22000
       - 22000:22000/udp
+    dns:
+    - 8.8.8.8
+    - 8.8.4.4
     environment:
       PUID: 1000
       PGID: 1000
@@ -38,6 +41,9 @@ services:
     build: webdav
     restart: always
     init: true
+    dns:
+    - 8.8.8.8
+    - 8.8.4.4
     environment:
       WEBDAV_PASSWORD_DORIDIAN: ${WEBDAV_PASSWORD_DORIDIAN}
     volumes:
