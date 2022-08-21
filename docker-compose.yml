@@ -10,6 +10,9 @@ services:
     - webdav:webdav
     extra_hosts:
     - host.docker.internal:host-gateway
+    dns:
+    - 8.8.8.8
+    - 8.8.4.4
     healthcheck:
       test: 'nc -z "$${HOSTNAME}" 443 || exit 1'
       interval: 60s
