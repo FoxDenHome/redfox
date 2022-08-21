@@ -13,8 +13,6 @@ aliases:
     target: 10.3.10.5
   foxcaves:
     target: 10.3.10.1
-  tasks:
-    target: 10.3.10.8
 hosts:
   __default__:
     target: host.docker.internal
@@ -27,8 +25,6 @@ hosts:
     target: nas
   homeassistant.foxden.network:
     target: homeassistant
-  tasks.foxden.network:
-    target: tasks
   syncthing.doridian.net:
     target: webdav
   api.spaceage.mp:
