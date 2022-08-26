@@ -1,14 +1,18 @@
 network:
     version: 2
     ethernets:
-        enp1s0:
-            accept-ra: true
+        eth0:
+            accept-ra: false
             dhcp4: false
-            dhcp6: true
+            dhcp6: false
             addresses:
+            - 45.151.132.166/23
+            - 45.151.132.38/23
             - 2a0e:7d44:f069::e621/48
-            - 66.42.78.232/23
+            - 2604:9cc0:0:7380::1/64
             routes:
             - to: default
-              via: 66.42.78.1
-
+              via: 45.151.132.1
+            - to: default
+              via: 2604:9cc0::1
+              on-link: true
