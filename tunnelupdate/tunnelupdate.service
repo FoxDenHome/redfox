@@ -1,0 +1,14 @@
+[Unit]
+Description=TunnelUpdate service
+StartLimitIntervalSec=0
+After=network.target
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+Environment=NETPLAN_FILE=/etc/netplan/10-tunnels.yaml
+ExecStart=/usr/bin/env python3 /opt/redfox/tunnelupdate
+
+[Install]
+WantedBy=multi-user.target
