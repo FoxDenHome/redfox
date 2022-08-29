@@ -1,5 +1,6 @@
 from http.server import ThreadingHTTPServer, BaseHTTPRequestHandler
 from subprocess import check_call
+from tabnanny import check
 from traceback import print_exc
 from urllib.parse import urlparse, parse_qs
 from signal import signal, SIGINT
@@ -43,11 +44,12 @@ class HttpHandler(BaseHTTPRequestHandler):
             if tunnel_config["remote"] == set_ip:
                 self.send_error(200, "No change")
 
+            check_call(["ip", "link", "set", "dev", remote_ident, "type", "sit", "remote", set_ip])
+
             tunnel_config["remote"] = set_ip
             with open(NETPLAN_FILE, "w") as f:
                 safe_dump(file, f)
 
-            check_call(["netplan", "apply"])
 
             self.send_error(200, "Changed")
         except:
