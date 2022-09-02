@@ -19,6 +19,8 @@ hosts:
     ports:
       http: 8080
       https: 8443
+
+  # Home network
   grafana.foxden.network:
     target: grafana
   nas.foxden.network:
@@ -27,6 +29,8 @@ hosts:
     target: homeassistant
   syncthing.doridian.net:
     target: webdav
+
+  # SpaceAge
   api.spaceage.mp:
     target: spaceage-web
   spaceage.mp:
@@ -39,6 +43,8 @@ hosts:
     target: spaceage-web
   forums.spaceage.mp:
     target: spaceage-web
+
+  # foxCaves
   foxcav.es:
     target: foxcaves
   www.foxcav.es:
@@ -47,3 +53,30 @@ hosts:
     target: foxcaves
   www.f0x.es:
     target: foxcaves
+
+  # Personal website
+  doridian.de:
+    target: website
+  www.doridian.de:
+    target: website
+  doridian.com:
+    target: website
+  www.doridian.com:
+    target: website
+  doridian.net:
+    target: website
+  www.doridian.net:
+    target: website
+  doridian.org:
+    target: website
+  www.doridian.org:
+    target: website
+
+  pawnode.com:
+    target: website
+  www.pawnode.com:
+    target: website
+  as207618.net:
+    target: website
+  www.as207618.net:
+    target: website
