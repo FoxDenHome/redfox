@@ -74,6 +74,8 @@ volumes:
   syncthing_data: {}
   webdav_config: {}
   webdav_data: {}
+  website_config: {}
+  website_data: {}
 
 networks:
   default:
