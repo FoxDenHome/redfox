@@ -21,7 +21,7 @@ services:
     image: linuxserver/syncthing:latest
     restart: always
     ports:
-      - 8384:8384
+      - 10.99.10.1:8384:8384
       - 22000:22000
       - 22000:22000/udp
     dns:
