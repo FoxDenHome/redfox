@@ -45,7 +45,7 @@ hosts:
     target: spaceage-web
 
   # foxCaves
-  caves.foxden.network:
+  foxcaves.foxden.network:
     target: foxcaves
   fcv.foxden.network:
     target: foxcaves
