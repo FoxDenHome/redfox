@@ -7,7 +7,6 @@ services:
     - 80:80
     - 443:443
     links:
-    - webdav:webdav
     - website:website
     extra_hosts:
     - host.docker.internal:host-gateway
@@ -36,22 +35,6 @@ services:
       test: 'nc -z "$${HOSTNAME}" 8384 || exit 1'
       interval: 60s
       timeout: 10s
-  webdav:
-    build: webdav
-    restart: always
-    init: true
-    dns:
-    - 108.61.10.10
-    environment:
-      WEBDAV_PASSWORD_DORIDIAN: ${WEBDAV_PASSWORD_DORIDIAN}
-    volumes:
-    - webdav_config:/config
-    - webdav_data:/data
-    - syncthing_data:/syncthing
-    healthcheck:
-      test: 'nc -z "$${HOSTNAME}" 443 || exit 1'
-      interval: 60s
-      timeout: 10s
   website:
     image: ghcr.io/doridian/website/website:latest
     restart: always
@@ -76,8 +59,6 @@ services:
 volumes:
   syncthing_config: {}
   syncthing_data: {}
-  webdav_config: {}
-  webdav_data: {}
   website_config: {}
   website_data: {}
 
