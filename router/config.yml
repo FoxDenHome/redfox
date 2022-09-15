@@ -45,13 +45,9 @@ hosts:
     target: spaceage-web
 
   # foxCaves
-  foxcav.es:
+  caves.foxden.network:
     target: foxcaves
-  www.foxcav.es:
-    target: foxcaves
-  f0x.es:
-    target: foxcaves
-  www.f0x.es:
+  fcv.foxden.network:
     target: foxcaves
 
   # Personal website
