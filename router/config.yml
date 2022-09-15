@@ -27,8 +27,6 @@ hosts:
     target: nas
   homeassistant.foxden.network:
     target: homeassistant
-  syncthing.doridian.net:
-    target: webdav
 
   # SpaceAge
   api.spaceage.mp:
