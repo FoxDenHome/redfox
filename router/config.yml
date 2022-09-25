@@ -45,7 +45,13 @@ hosts:
   # foxCaves
   foxcaves.foxden.network:
     target: foxcaves
-  fcv.foxden.network:
+  fox.ax:
+    target: foxcaves
+  foxcaves.fox.ax:
+    target: foxcaves
+  caves.fox.ax:
+    target: foxcaves
+  www.fox.ax:
     target: foxcaves
 
   # Personal website
