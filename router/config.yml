@@ -31,13 +31,7 @@ hosts:
   # SpaceAge
   api.spaceage.mp:
     target: spaceage-web
-  spaceage.mp:
-    target: spaceage-web
-  static.spaceage.mp:
-    target: spaceage-web
   tts.spaceage.mp:
-    target: spaceage-web
-  www.spaceage.mp:
     target: spaceage-web
   forums.spaceage.mp:
     target: spaceage-web
