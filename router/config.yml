@@ -37,15 +37,13 @@ hosts:
     target: spaceage-web
 
   # foxCaves
-  foxcaves.foxden.network:
+  foxcav.es:
     target: foxcaves
-  fox.ax:
+  www.foxcav.es:
     target: foxcaves
-  foxcaves.fox.ax:
+  f0x.es:
     target: foxcaves
-  caves.fox.ax:
-    target: foxcaves
-  www.fox.ax:
+  www.f0x.es:
     target: foxcaves
 
   # Personal website
