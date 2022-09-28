@@ -33,8 +33,10 @@ hosts:
     target: spaceage-web
   tts.spaceage.mp:
     target: spaceage-web
-  forums.spaceage.mp:
-    target: spaceage-web
+  spaceage.mp:
+    target: spaceage-website
+  www.spaceage.mp:
+    target: spaceage-website
 
   # foxCaves
   foxcav.es:
@@ -51,24 +53,7 @@ hosts:
     target: website
   www.doridian.de:
     target: website
-  doridian.com:
-    target: website
-  www.doridian.com:
-    target: website
   doridian.net:
     target: website
   www.doridian.net:
-    target: website
-  doridian.org:
-    target: website
-  www.doridian.org:
-    target: website
-
-  pawnode.com:
-    target: website
-  www.pawnode.com:
-    target: website
-  as207618.net:
-    target: website
-  www.as207618.net:
     target: website
