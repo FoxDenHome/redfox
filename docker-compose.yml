@@ -8,6 +8,7 @@ services:
     - 443:443
     links:
     - website:website
+    - spaceage-website:spaceage-website
     extra_hosts:
     - host.docker.internal:host-gateway
     dns:
@@ -57,8 +58,8 @@ services:
       interval: 60s
       timeout: 10s
     volumes:
-    - website_config:/config
-    - website_data:/data
+    - spaceage_website_config:/config
+    - spaceage_website_data:/data
   autoheal:
     restart: always
     userns_mode: host
@@ -73,6 +74,8 @@ volumes:
   syncthing_data: {}
   website_config: {}
   website_data: {}
+  spaceage_website_config: {}
+  spaceage_website_data: {}
 
 networks:
   default:
