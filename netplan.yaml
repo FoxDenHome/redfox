@@ -7,8 +7,8 @@ network:
             dhcp6: true
             addresses:
             - 2a0e:8f02:21c0::e621/48
-            - 2a0e:7d44:f069::e621/48
-            - 66.42.78.232/23
+            - 2a0e:7d44:f000::e621/48
+            - 66.42.76.73/23
             routes:
             - to: default
-              via: 66.42.78.1
+              via: 66.42.76.1
