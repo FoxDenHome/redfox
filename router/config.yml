@@ -13,6 +13,8 @@ aliases:
     target: 10.3.10.5
   foxcaves:
     target: 10.3.10.1
+  git:
+    target: 10.3.10.2
 hosts:
   __default__:
     target: host.docker.internal
@@ -57,3 +59,6 @@ hosts:
     target: website
   www.doridian.net:
     target: website
+
+  git.foxden.network:
+    target: git
