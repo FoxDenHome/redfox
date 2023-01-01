@@ -15,6 +15,8 @@ aliases:
     target: 10.3.10.1
   git:
     target: 10.3.10.2
+  signtools:
+    target: 10.3.10.6
 hosts:
   __default__:
     target: host.docker.internal
