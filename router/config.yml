@@ -64,3 +64,5 @@ hosts:
 
   git.foxden.network:
     target: git
+  signtools.foxden.network:
+    target: signtools
