@@ -33,7 +33,9 @@ class HttpHandler(BaseHTTPRequestHandler):
                 return
 
             remote_ident = IDENTS[remote_ip]
-            set_ip = args["ip"][0]
+            set_ip_raw = args["ip"][0]
+            set_ip_split = set_ip_raw.split("/")
+            set_ip = set_ip_split[0]
 
             file = {}
             with open(NETPLAN_FILE, "r") as f:
