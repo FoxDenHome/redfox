@@ -44,7 +44,8 @@ class HttpHandler(BaseHTTPRequestHandler):
             tunnel_config = file["network"]["tunnels"][remote_ident]
 
             if tunnel_config["remote"] == set_ip:
-                self.send_error(200, "No change")
+                self.send_response(200, "OK")
+                self.wfile.write(f"nochg {set_ip}".encode("utf-8"))
 
             check_call(["ip", "link", "set", "dev", remote_ident, "type", "sit", "remote", set_ip])
 
@@ -52,8 +53,8 @@ class HttpHandler(BaseHTTPRequestHandler):
             with open(NETPLAN_FILE, "w") as f:
                 safe_dump(file, f)
 
-
-            self.send_error(200, "Changed")
+            self.send_response(200, "OK")
+            self.wfile.write(f"good {set_ip}".encode("utf-8"))
         except:
             print_exc()
             self.send_error(500, "Internal Server Error")
