@@ -19,11 +19,11 @@ class HttpHandler(BaseHTTPRequestHandler):
     def do_GET(self):
         try:
             path, args = self.parse_url()
-            if path != "/update-ip":
+            if path != "/nic/update":
                 self.send_error(404, "Not Found")
                 return
 
-            if "ip" not in args:
+            if "myip" not in args:
                 self.send_error(400, "Bad request")
                 return
 
@@ -33,7 +33,7 @@ class HttpHandler(BaseHTTPRequestHandler):
                 return
 
             remote_ident = IDENTS[remote_ip]
-            set_ip_raw = args["ip"][0]
+            set_ip_raw = args["myip"][0]
             set_ip_split = set_ip_raw.split("/")
             set_ip = set_ip_split[0]
 
