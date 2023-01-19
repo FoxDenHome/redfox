@@ -47,6 +47,7 @@ class HttpHandler(BaseHTTPRequestHandler):
                 self.send_response(200, "OK")
                 self.end_headers()
                 self.wfile.write(f"nochg {set_ip}".encode("utf-8"))
+                return
 
             check_call(["ip", "link", "set", "dev", remote_ident, "type", "sit", "remote", set_ip])
 
