@@ -45,6 +45,7 @@ class HttpHandler(BaseHTTPRequestHandler):
 
             if tunnel_config["remote"] == set_ip:
                 self.send_response(200, "OK")
+                self.end_headers()
                 self.wfile.write(f"nochg {set_ip}".encode("utf-8"))
 
             check_call(["ip", "link", "set", "dev", remote_ident, "type", "sit", "remote", set_ip])
@@ -54,6 +55,7 @@ class HttpHandler(BaseHTTPRequestHandler):
                 safe_dump(file, f)
 
             self.send_response(200, "OK")
+            self.end_headers()
             self.wfile.write(f"good {set_ip}".encode("utf-8"))
         except:
             print_exc()
