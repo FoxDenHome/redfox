@@ -1,6 +1,5 @@
 from http.server import ThreadingHTTPServer, BaseHTTPRequestHandler
 from subprocess import check_call
-from tabnanny import check
 from traceback import print_exc
 from urllib.parse import urlparse, parse_qs
 from signal import signal, SIGINT
