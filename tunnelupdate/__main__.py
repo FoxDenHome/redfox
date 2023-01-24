@@ -11,8 +11,8 @@ from os import getenv
 
 
 IDENTS = {}
-IDENTS["10.111.1.1"] = "router-a-ipv6"
-IDENTS["10.111.1.3"] = "router-b-ipv6"
+IDENTS["10.99.1.1"] = "router-a-ipv6"
+IDENTS["10.99.1.3"] = "router-b-ipv6"
 
 NETPLAN_FILE = getenv("NETPLAN_FILE", join(dirname(__file__), "./tunnels-base.yml"))
 
