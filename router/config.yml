@@ -71,5 +71,3 @@ hosts:
 
   akvorado.foxden.network:
     target: akvorado
-  akvorado-private.foxden.network:
-    target: akvorado
