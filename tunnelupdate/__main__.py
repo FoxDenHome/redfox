@@ -15,17 +15,12 @@ IDENTS["10.99.1.3"] = "router-b-ipv6"
 
 NETPLAN_FILE = getenv("NETPLAN_FILE", join(dirname(__file__), "./tunnels-base.yml"))
 
+IP_ARGS = set(["myip","ip"])
+
 class HttpHandler(BaseHTTPRequestHandler):
     def do_GET(self):
         try:
-            path, args = self.parse_url()
-            if path != "/nic/update":
-                self.send_error(404, "Not Found")
-                return
-
-            if "myip" not in args:
-                self.send_error(400, "Bad request")
-                return
+            _, args = self.parse_url()
 
             remote_ip = self.client_address[0]
             if remote_ip not in IDENTS:
@@ -33,7 +28,16 @@ class HttpHandler(BaseHTTPRequestHandler):
                 return
 
             remote_ident = IDENTS[remote_ip]
-            set_ip_raw = args["myip"][0]
+
+            set_ip_raw = None
+            for ip_arg in IP_ARGS:
+                if ip_arg not in args:
+                    continue
+                set_ip_raw = args[ip_arg][0]
+            if not set_ip_raw:
+                self.send_error(400, "Bad Request")
+                return
+
             set_ip_split = set_ip_raw.split("/")
             set_ip = set_ip_split[0]
 
