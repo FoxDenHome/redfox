@@ -1,5 +1,5 @@
 from http.server import ThreadingHTTPServer, BaseHTTPRequestHandler
-from subprocess import check_call
+from subprocess import check_call, call
 from traceback import print_exc
 from urllib.parse import urlparse, parse_qs
 from signal import signal, SIGINT
@@ -75,7 +75,7 @@ class HttpHandler(BaseHTTPRequestHandler):
                     "to": remote_ident["primary_route"],
                     "via": remote_ident["remote_ipv6"],
                 })
-                check_call(["ip", "-6", "route", "add", remote_ident["primary_route"], "via", remote_ident["remote_ipv6"]])
+                call(["ip", "-6", "route", "add", remote_ident["primary_route"], "via", remote_ident["remote_ipv6"]])
             elif not is_primary and was_primary:
                 temp = []
                 for routes in tunnel_config["routes"]:
@@ -83,7 +83,7 @@ class HttpHandler(BaseHTTPRequestHandler):
                         continue
                     temp.append(routes)
                 tunnel_config["routes"] = temp
-                check_call(["ip", "-6", "route", "del", remote_ident["primary_route"], "via", remote_ident["remote_ipv6"]])
+                call(["ip", "-6", "route", "del", remote_ident["primary_route"], "via", remote_ident["remote_ipv6"]])
 
             check_call(["ip", "link", "set", "dev", remote_ident_name, "type", "sit", "remote", set_ip])
 
