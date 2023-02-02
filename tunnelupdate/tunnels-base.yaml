@@ -2,7 +2,6 @@ network:
   tunnels:
     router-a-ipv6:
       addresses:
-      - 2a0e:8f02:21c0:a::1/64
       - 2a0e:7d44:f000:a::1/64
       local: 66.42.71.230
       mode: sit
@@ -11,11 +10,8 @@ network:
       routes:
       - to: 2a0e:7d44:f00a::/48
         via: 2a0e:7d44:f000:a::2
-      - to: 2a0e:8f02:21ca::/48
-        via: 2a0e:8f02:21c0:a::2
     router-b-ipv6:
       addresses:
-      - 2a0e:8f02:21c0:b::1/64
       - 2a0e:7d44:f000:b::1/64
       local: 66.42.71.230
       mode: sit
@@ -24,6 +20,4 @@ network:
       routes:
       - to: 2a0e:7d44:f00b::/48
         via: 2a0e:7d44:f000:b::2
-      - to: 2a0e:8f02:21cb::/48
-        via: 2a0e:8f02:21c0:b::2
   version: 2

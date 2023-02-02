@@ -10,8 +10,16 @@ from os import getenv
 
 
 IDENTS = {}
-IDENTS["10.99.1.1"] = "router-a-ipv6"
-IDENTS["10.99.1.3"] = "router-b-ipv6"
+IDENTS["10.99.1.1"] = {
+    "name": "router-a-ipv6",
+    "remote_ipv6": "2a0e:7d44:f000:a::2",
+    "primary_route": "2a0e:7d44:f069::/48",
+}
+IDENTS["10.99.1.3"] = {
+    "name": "router-b-ipv6",
+    "remote_ipv6": "2a0e:7d44:f000:b::2",
+    "primary_route": "2a0e:7d44:f069::/48",
+}
 
 NETPLAN_FILE = getenv("NETPLAN_FILE", join(dirname(__file__), "./tunnels-base.yml"))
 
@@ -28,6 +36,7 @@ class HttpHandler(BaseHTTPRequestHandler):
                 return
 
             remote_ident = IDENTS[remote_ip]
+            remote_ident_name = remote_ident["name"]
 
             set_ip_raw = None
             for ip_arg in IP_ARGS:
@@ -41,19 +50,42 @@ class HttpHandler(BaseHTTPRequestHandler):
             set_ip_split = set_ip_raw.split("/")
             set_ip = set_ip_split[0]
 
+            is_primary = ("primary" in args and args["primary"][0] == "1")
+
             file = {}
             with open(NETPLAN_FILE, "r") as f:
                 file = safe_load(f)
 
-            tunnel_config = file["network"]["tunnels"][remote_ident]
+            tunnel_config = file["network"]["tunnels"][remote_ident_name]
 
-            if tunnel_config["remote"] == set_ip:
+            was_primary = False
+            for routes in tunnel_config["routes"]:
+                if routes["to"] == remote_ident["primary_route"]:
+                    was_primary = True
+                    break
+
+            if tunnel_config["remote"] == set_ip and was_primary == is_primary:
                 self.send_response(200, "OK")
                 self.end_headers()
                 self.wfile.write(f"nochg {set_ip}".encode("utf-8"))
                 return
 
-            check_call(["ip", "link", "set", "dev", remote_ident, "type", "sit", "remote", set_ip])
+            if is_primary and not was_primary:
+                tunnel_config["routes"].append({
+                    "to": remote_ident["primary_route"],
+                    "via": remote_ident["remote_ipv6"],
+                })
+                check_call(["ip", "-6", "route", "add", remote_ident["primary_route"], "via", remote_ident["remote_ipv6"]])
+            elif not is_primary and was_primary:
+                temp = []
+                for routes in tunnel_config["routes"]:
+                    if routes["to"] == remote_ident["primary_route"]:
+                        continue
+                    temp.append(routes)
+                tunnel_config["routes"] = temp
+                check_call(["ip", "-6", "route", "del", remote_ident["primary_route"], "via", remote_ident["remote_ipv6"]])
+
+            check_call(["ip", "link", "set", "dev", remote_ident_name, "type", "sit", "remote", set_ip])
 
             tunnel_config["remote"] = set_ip
             with open(NETPLAN_FILE, "w") as f:
