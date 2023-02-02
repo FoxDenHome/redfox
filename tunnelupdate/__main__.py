@@ -71,19 +71,22 @@ class HttpHandler(BaseHTTPRequestHandler):
                 return
 
             if is_primary and not was_primary:
+                primary_route = remote_ident["primary_route"]
+                for idents in IDENTS:
+                    other_tunnel_config = file["network"]["tunnels"][idents]
+                    temp = []
+                    for routes in other_tunnel_config["routes"]:
+                        if routes["to"] == primary_route:
+                            continue
+                        temp.append(routes)
+                    other_tunnel_config["routes"] = temp
+                    call(["ip", "-6", "route", "del", primary_route, "via", remote_ident["remote_ipv6"]])
+
                 tunnel_config["routes"].append({
-                    "to": remote_ident["primary_route"],
+                    "to": primary_route,
                     "via": remote_ident["remote_ipv6"],
                 })
-                call(["ip", "-6", "route", "add", remote_ident["primary_route"], "via", remote_ident["remote_ipv6"]])
-            elif not is_primary and was_primary:
-                temp = []
-                for routes in tunnel_config["routes"]:
-                    if routes["to"] == remote_ident["primary_route"]:
-                        continue
-                    temp.append(routes)
-                tunnel_config["routes"] = temp
-                call(["ip", "-6", "route", "del", remote_ident["primary_route"], "via", remote_ident["remote_ipv6"]])
+                call(["ip", "-6", "route", "add", primary_route, "via", remote_ident["remote_ipv6"]])
 
             check_call(["ip", "link", "set", "dev", remote_ident_name, "type", "sit", "remote", set_ip])
 
