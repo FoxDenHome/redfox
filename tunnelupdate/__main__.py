@@ -50,7 +50,7 @@ class HttpHandler(BaseHTTPRequestHandler):
             set_ip_split = set_ip_raw.split("/")
             set_ip = set_ip_split[0]
 
-            is_primary = ("primary" in args and args["primary"][0] == "1")
+            is_primary = ("primary" in args and args["primary"][0] == "true")
 
             file = {}
             with open(NETPLAN_FILE, "r") as f:
