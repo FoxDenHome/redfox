@@ -73,6 +73,8 @@ class HttpHandler(BaseHTTPRequestHandler):
             if is_primary and not was_primary:
                 primary_route = remote_ident["primary_route"]
                 for _, ident in IDENTS.items():
+                    if ident == remote_ident:
+                        continue
                     other_tunnel_config = file["network"]["tunnels"][ident["name"]]
                     temp = []
                     for routes in other_tunnel_config["routes"]:
