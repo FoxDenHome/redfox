@@ -46,13 +46,13 @@ hosts:
 
   # foxCaves
   foxcav.es:
-    target: foxcaves
+    target: foxcaves-site
   www.foxcav.es:
-    target: foxcaves
+    target: foxcaves-site
   f0x.es:
-    target: foxcaves
+    target: foxcaves-site
   www.f0x.es:
-    target: foxcaves
+    target: foxcaves-site
 
   # Personal website
   doridian.de:
