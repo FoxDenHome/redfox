@@ -5,6 +5,7 @@ defaults:
 aliases:
   nas:
     target: 10.2.11.1
+    proxy_protocol: true
   grafana:
     target: 10.2.11.5
   homeassistant:
