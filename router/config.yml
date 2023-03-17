@@ -13,6 +13,7 @@ aliases:
     target: 10.2.12.2
   spaceage-web:
     target: 10.3.10.5
+    proxy_protocol: true
   foxcaves:
     target: 10.3.10.1
   git:
