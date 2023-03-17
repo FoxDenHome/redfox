@@ -26,6 +26,10 @@ aliases:
     proxy_protocol: true
   homeassistant:
     target: 10.2.12.2
+    proxy_protocol: true
+    ports:
+      http: 8080
+      https: 8443
 hosts:
   __default__:
     target: host.docker.internal
