@@ -17,10 +17,14 @@ aliases:
     ports:
       http: 8080
       https: 8443
-  foxcaves:
-    target: 10.3.10.1
   git:
     target: 10.3.10.2
+  foxcaves:
+    target: foxcaves-site
+    proxy_protocol: true
+    ports:
+      http: 8080
+      https: 8443
 hosts:
   __default__:
     target: host.docker.internal
@@ -48,13 +52,13 @@ hosts:
 
   # foxCaves
   foxcav.es:
-    target: foxcaves-site
+    target: foxcaves
   www.foxcav.es:
-    target: foxcaves-site
+    target: foxcaves
   f0x.es:
-    target: foxcaves-site
+    target: foxcaves
   www.f0x.es:
-    target: foxcaves-site
+    target: foxcaves
 
   # Personal website
   doridian.de:
