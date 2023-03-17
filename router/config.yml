@@ -14,6 +14,9 @@ aliases:
   spaceage-web:
     target: 10.3.10.5
     proxy_protocol: true
+    ports:
+      http: 8080
+      https: 8443
   foxcaves:
     target: 10.3.10.1
   git:
