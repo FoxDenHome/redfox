@@ -23,6 +23,7 @@ aliases:
       https: 8443
   git:
     target: 10.3.10.2
+    proxy_protocol: true
   homeassistant:
     target: 10.2.12.2
 hosts:
