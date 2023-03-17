@@ -9,22 +9,22 @@ aliases:
   grafana:
     target: 10.2.11.5
     proxy_protocol: true
-  homeassistant:
-    target: 10.2.12.2
   spaceage-web:
     target: 10.3.10.5
     proxy_protocol: true
     ports:
       http: 8080
       https: 8443
-  git:
-    target: 10.3.10.2
   foxcaves:
     target: foxcaves-site
     proxy_protocol: true
     ports:
       http: 8080
       https: 8443
+  git:
+    target: 10.3.10.2
+  homeassistant:
+    target: 10.2.12.2
 hosts:
   __default__:
     target: host.docker.internal
@@ -46,9 +46,9 @@ hosts:
   tts.spaceage.mp:
     target: spaceage-web
   spaceage.mp:
-    target: spaceage-website
+    target: spaceage-website # Direct host mapping
   www.spaceage.mp:
-    target: spaceage-website
+    target: spaceage-website # Direct host mapping
 
   # foxCaves
   foxcav.es:
@@ -62,13 +62,13 @@ hosts:
 
   # Personal website
   doridian.de:
-    target: website
+    target: website # Direct host mapping
   www.doridian.de:
-    target: website
+    target: website # Direct host mapping
   doridian.net:
-    target: website
+    target: website # Direct host mapping
   www.doridian.net:
-    target: website
+    target: website # Direct host mapping
 
   git.foxden.network:
     target: git
