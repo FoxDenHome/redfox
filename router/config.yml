@@ -8,6 +8,7 @@ aliases:
     proxy_protocol: true
   grafana:
     target: 10.2.11.5
+    proxy_protocol: true
   homeassistant:
     target: 10.2.12.2
   spaceage-web:
@@ -16,10 +17,6 @@ aliases:
     target: 10.3.10.1
   git:
     target: 10.3.10.2
-  signtools:
-    target: 10.3.10.6
-  akvorado:
-    target: 10.6.11.3
 hosts:
   __default__:
     target: host.docker.internal
@@ -67,8 +64,3 @@ hosts:
 
   git.foxden.network:
     target: git
-  signtools.foxden.network:
-    target: signtools
-
-  akvorado.foxden.network:
-    target: akvorado
