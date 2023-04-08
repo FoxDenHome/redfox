@@ -9,7 +9,6 @@ services:
     links:
     - website:website
     - spaceage-website:spaceage-website
-    - foxcaves-site:foxcaves-site
     extra_hosts:
     - host.docker.internal:host-gateway
     dns:
