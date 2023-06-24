@@ -24,6 +24,9 @@ aliases:
   git:
     target: 10.3.10.2
     proxy_protocol: true
+  s3:
+    target: 10.2.11.17
+    proxy_protocol: true
   homeassistant:
     target: 10.2.12.2
     #proxy_protocol: true
@@ -77,3 +80,6 @@ hosts:
 
   git.foxden.network:
     target: git
+
+  s3.foxden.network:
+    target: s3
