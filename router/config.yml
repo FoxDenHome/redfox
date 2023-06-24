@@ -83,3 +83,5 @@ hosts:
 
   s3.foxden.network:
     target: s3
+  console.s3.foxden.network:
+    target: s3
