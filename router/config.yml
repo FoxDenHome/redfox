@@ -45,6 +45,8 @@ hosts:
     target: grafana
   nas.foxden.network:
     target: nas
+  dav.foxden.network:
+    target: nas
   homeassistant.foxden.network:
     target: homeassistant
 
@@ -80,8 +82,3 @@ hosts:
 
   git.foxden.network:
     target: git
-
-  s3.foxden.network:
-    target: s3
-  console.s3.foxden.network:
-    target: s3
