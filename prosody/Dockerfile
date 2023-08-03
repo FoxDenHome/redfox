@@ -1,3 +1,4 @@
 FROM prosody/prosody:latest
 
-RUN apt-get -y install certbot
+RUN apt-get update && \
+        apt-get -y install certbot
