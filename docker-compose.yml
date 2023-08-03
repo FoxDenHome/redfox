@@ -93,7 +93,7 @@ services:
     - "--secret"
     - "${SLIDCORD_SECRET}"
     links:
-    - f0x.es:prosody
+    - prosody:f0x.es
     volumes:
     - slidcord_data:/var/lib/slidge
   autoheal:
