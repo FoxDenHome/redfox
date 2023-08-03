@@ -96,6 +96,26 @@ services:
     - prosody:xmppshare.f0x.es
     volumes:
     - slidcord_data:/var/lib/slidge
+  slidgram:
+    image: nicocool84/slidgram:master
+    restart: always
+    hostname: telegram.f0x.es
+    dns:
+    - 108.61.10.10
+    command:
+    - "--server"
+    - "f0x.es"
+    - "--user-jid-validator"
+    - ".*@f0x.es"
+    - "--jid"
+    - "telegram.f0x.es"
+    - "--secret"
+    - "${SLIDGRAM_SECRET}"
+    links:
+    - prosody:f0x.es
+    - prosody:xmppshare.f0x.es
+    volumes:
+    - slidgram_data:/var/lib/slidge
   autoheal:
     restart: always
     userns_mode: host
@@ -119,6 +139,7 @@ volumes:
   prosody_data: {}
 
   slidcord_data: {}
+  slidgram_data: {}
 
 networks:
   default:
