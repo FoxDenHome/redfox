@@ -76,6 +76,20 @@ services:
     - prosody_config:/etc/prosody
     - prosody_letsencrypt:/etc/letsencrypt
     - prosody_data:/var/lib/prosody
+  slidcord:
+    image: nicocool84/slidcord
+    restart: always
+    dns:
+    - 108.61.10.10
+    links:
+    - prosody:prosody
+    command:
+    - "--server"
+    - "prosody"
+    - "--jid"
+    - "discord.f0x.es"
+    - "--secret"
+    - "$${SLIDCORD_SECRET}"
   autoheal:
     restart: always
     userns_mode: host
