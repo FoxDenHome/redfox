@@ -60,7 +60,7 @@ services:
     - spaceage_website_config:/config
     - spaceage_website_data:/data
   prosody:
-    image: prosody/prosody:latest
+    build: prosody
     restart: always
     dns:
     - 108.61.10.10
