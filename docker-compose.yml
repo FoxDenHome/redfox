@@ -86,6 +86,8 @@ services:
     command:
     - "--server"
     - "prosody"
+    - "--user-jid-validator"
+    - ".*@f0x.es"
     - "--jid"
     - "discord.f0x.es"
     - "--secret"
