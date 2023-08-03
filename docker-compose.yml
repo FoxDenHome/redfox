@@ -85,7 +85,7 @@ services:
     - 108.61.10.10
     command:
     - "--server"
-    - "prosody"
+    - "f0x.es"
     - "--user-jid-validator"
     - ".*@f0x.es"
     - "--jid"
@@ -93,7 +93,7 @@ services:
     - "--secret"
     - "${SLIDCORD_SECRET}"
     links:
-    - prosody:prosody
+    - f0x.es:prosody
     volumes:
     - slidcord_data:/var/lib/slidge
   autoheal:
