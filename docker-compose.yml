@@ -92,6 +92,8 @@ services:
     - "discord.f0x.es"
     - "--secret"
     - "${SLIDCORD_SECRET}"
+    links:
+    - prosody:prosody
     volumes:
     - slidcord_data:/var/lib/slidge
   autoheal:
