@@ -92,6 +92,8 @@ services:
     - "discord.f0x.es"
     - "--secret"
     - "$${SLIDCORD_SECRET}"
+    volumes:
+    - slidcord_data:/var/lib/slidge
   autoheal:
     restart: always
     userns_mode: host
@@ -113,6 +115,8 @@ volumes:
   prosody_config: {}
   prosody_letsencrypt: {}
   prosody_data: {}
+
+  slidcord_data: {}
 
 networks:
   default:
