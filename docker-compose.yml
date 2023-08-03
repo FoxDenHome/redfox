@@ -91,7 +91,7 @@ services:
     - "--jid"
     - "discord.f0x.es"
     - "--secret"
-    - "$${SLIDCORD_SECRET}"
+    - "${SLIDCORD_SECRET}"
     volumes:
     - slidcord_data:/var/lib/slidge
   autoheal:
