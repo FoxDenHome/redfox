@@ -70,6 +70,12 @@ hosts:
   www.f0x.es:
     target: foxcaves
 
+  xmppshare.f0x.es:
+    target: prosody
+    ports:
+      http: 5280
+      https: 5281
+
   # Personal website
   doridian.de:
     target: website # Direct host mapping

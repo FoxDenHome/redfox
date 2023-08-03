@@ -69,7 +69,6 @@ services:
     ports:
     - 5222:5222
     - 5269:5269
-    - 5280:5280
     - 5281:5281
     environment:
       DOMAIN: f0x.es
