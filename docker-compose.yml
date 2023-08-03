@@ -59,6 +59,18 @@ services:
     volumes:
     - spaceage_website_config:/config
     - spaceage_website_data:/data
+  prosody:
+    image: prosody/prosody:latest
+    restart: always
+    dns:
+    - 108.61.10.10
+    ports:
+    - 5222:5222
+    - 5269:5269
+    - 5280:5280
+    - 5281:5281
+    volumes:
+    - prosody_config:/etc/prosody
   autoheal:
     restart: always
     userns_mode: host
@@ -76,6 +88,8 @@ volumes:
 
   spaceage_website_config: {}
   spaceage_website_data: {}
+
+  prosody_config: {}
 
 networks:
   default:
