@@ -63,7 +63,7 @@ services:
   prosody:
     build: prosody
     restart: always
-    hostname: prosody
+    hostname: f0x.es
     dns:
     - 108.61.10.10
     ports:
