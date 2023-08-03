@@ -75,6 +75,7 @@ services:
     volumes:
     - prosody_config:/etc/prosody
     - prosody_letsencrypt:/etc/letsencrypt
+    - prosody_data:/var/lib/prosody
   autoheal:
     restart: always
     userns_mode: host
@@ -95,6 +96,7 @@ volumes:
 
   prosody_config: {}
   prosody_letsencrypt: {}
+  prosody_data: {}
 
 networks:
   default:
