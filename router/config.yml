@@ -73,7 +73,7 @@ hosts:
   xmppshare.f0x.es:
     target: prosody
     ports:
-      http: 5280
+      http: 80
       https: 5281
 
   # Personal website
