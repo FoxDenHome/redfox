@@ -63,7 +63,7 @@ services:
   prosody:
     build: prosody
     restart: always
-    container_name: prosody
+    hostname: prosody
     dns:
     - 108.61.10.10
     ports:
@@ -80,7 +80,7 @@ services:
   slidcord:
     image: nicocool84/slidcord:master
     restart: always
-    container_name: discord.f0x.es
+    hostname: discord.f0x.es
     dns:
     - 108.61.10.10
     command:
