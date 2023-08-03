@@ -77,7 +77,7 @@ services:
     - prosody_letsencrypt:/etc/letsencrypt
     - prosody_data:/var/lib/prosody
   slidcord:
-    image: nicocool84/slidcord
+    image: nicocool84/slidcord:master
     restart: always
     dns:
     - 108.61.10.10
