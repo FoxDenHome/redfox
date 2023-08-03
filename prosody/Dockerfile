@@ -1,5 +1,3 @@
-FROM prosody/prosody-alpine:latest
+FROM prosody/prosody:latest
 
-USER root
-RUN apk add --no-cache uacme
-USER user
+RUN apt-get -y install certbot
