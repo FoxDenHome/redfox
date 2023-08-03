@@ -9,6 +9,7 @@ services:
     links:
     - website:website
     - spaceage-website:spaceage-website
+    - prosody:prosody
     extra_hosts:
     - host.docker.internal:host-gateway
     dns:
