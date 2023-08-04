@@ -72,6 +72,7 @@ services:
     - 5281:5281
     environment:
       DOMAIN: f0x.es
+      TZ: America/Los_Angeles
     volumes:
     - prosody_config:/usr/local/etc/prosody
     - prosody_letsencrypt:/etc/letsencrypt
@@ -94,6 +95,8 @@ services:
     links:
     - prosody:f0x.es
     - prosody:xmppshare.f0x.es
+    environment:
+      TZ: America/Los_Angeles
     volumes:
     - slidcord_data:/var/lib/slidge
   slidgram:
@@ -114,6 +117,8 @@ services:
     links:
     - prosody:f0x.es
     - prosody:xmppshare.f0x.es
+    environment:
+      TZ: America/Los_Angeles
     volumes:
     - slidgram_data:/var/lib/slidge
   autoheal:
