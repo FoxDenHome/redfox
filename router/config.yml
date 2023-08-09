@@ -8,79 +8,70 @@ defaults:
       port: 443
 templates:
   nas:
-    backends:
-      http:
-        host: 10.2.11.1
-        proxy_protocol: true
-      https:
-        host: 10.2.11.1
-        proxy_protocol: true
+    http:
+      host: 10.2.11.1
+      proxy_protocol: true
+    https:
+      host: 10.2.11.1
+      proxy_protocol: true
   grafana:
-    backends:
-      http:
-        host: 10.2.11.5
-        proxy_protocol: true
-      https:
-        host: 10.2.11.5
-        proxy_protocol: true
+    http:
+      host: 10.2.11.5
+      proxy_protocol: true
+    https:
+      host: 10.2.11.5
+      proxy_protocol: true
   spaceage-web:
-    backends:
-      http:
-        host: 10.3.10.5
-        proxy_protocol: true
-        port: 8080
-      https:
-        host: 10.3.10.5
-        proxy_protocol: true
-        port: 8443
+    http:
+      host: 10.3.10.5
+      proxy_protocol: true
+      port: 8080
+    https:
+      host: 10.3.10.5
+      proxy_protocol: true
+      port: 8443
   foxcaves:
-    backends:
-      http:
-        host: 10.3.10.1
-        proxy_protocol: true
-        port: 8080
-      https:
-        host: 10.3.10.1
-        proxy_protocol: true
-        port: 8443
+    http:
+      host: 10.3.10.1
+      proxy_protocol: true
+      port: 8080
+    https:
+      host: 10.3.10.1
+      proxy_protocol: true
+      port: 8443
   git:
-    backends:
-      http:
-        host: 10.3.10.2
-        proxy_protocol: true
-      https:
-        host: 10.3.10.2
-        proxy_protocol: true
+    http:
+      host: 10.3.10.2
+      proxy_protocol: true
+    https:
+      host: 10.3.10.2
+      proxy_protocol: true
   s3:
-    backends:
-      http:
-        host: 10.2.11.17
-        proxy_protocol: true
-      https:
-        host: 10.2.11.17
-        proxy_protocol: true
+    http:
+      host: 10.2.11.17
+      proxy_protocol: true
+    https:
+      host: 10.2.11.17
+      proxy_protocol: true
   homeassistant:
-    backends:
-      http:
-        host: 10.2.12.2
-        #proxy_protocol: true
-        #port: 8080
-      https:
-        host: 10.2.12.2
-        #proxy_protocol: true
-        #port: 8443
+    http:
+      host: 10.2.12.2
+      #proxy_protocol: true
+      #port: 8080
+    https:
+      host: 10.2.12.2
+      #proxy_protocol: true
+      #port: 8443
   spaceage-website:
-    backends:
-      http:
-        host: spaceage-website
-      https:
-        host: spaceage-website
+    http:
+      host: spaceage-website
+    https:
+      host: spaceage-website
   website:
-    backends:
-      http:
-        host: website
-      https:
-        host: website
+    http:
+      host: website
+    https:
+      host: website
 
 hosts:
   # Home network
