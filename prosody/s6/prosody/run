@@ -1,2 +1,2 @@
 #!/bin/sh
-s6-setuidgid prosody prosody -F
+exec s6-setuidgid prosody prosody -F
