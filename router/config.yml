@@ -1,90 +1,136 @@
 defaults:
-  ports:
-    http: 80
-    https: 443
-aliases:
+  backends:
+    http:
+      host: host.docker.internal
+      port: 80
+    https:
+      host: host.docker.internal
+      port: 443
+templates:
   nas:
-    target: 10.2.11.1
-    proxy_protocol: true
+    backends:
+      http:
+        host: 10.2.11.1
+        proxy_protocol: true
+      https:
+        host: 10.2.11.1
+        proxy_protocol: true
   grafana:
-    target: 10.2.11.5
-    proxy_protocol: true
+    backends:
+      http:
+        host: 10.2.11.5
+        proxy_protocol: true
+      https:
+        host: 10.2.11.5
+        proxy_protocol: true
   spaceage-web:
-    target: 10.3.10.5
-    proxy_protocol: true
-    ports:
-      http: 8080
-      https: 8443
+    backends:
+      http:
+        host: 10.3.10.5
+        proxy_protocol: true
+        port: 8080
+      https:
+        host: 10.3.10.5
+        proxy_protocol: true
+        port: 8443
   foxcaves:
-    target: 10.3.10.1
-    proxy_protocol: true
-    ports:
-      http: 8080
-      https: 8443
+    backends:
+      http:
+        host: 10.3.10.1
+        proxy_protocol: true
+        port: 8080
+      https:
+        host: 10.3.10.1
+        proxy_protocol: true
+        port: 8443
   git:
-    target: 10.3.10.2
-    proxy_protocol: true
+    backends:
+      http:
+        host: 10.3.10.2
+        proxy_protocol: true
+      https:
+        host: 10.3.10.2
+        proxy_protocol: true
   s3:
-    target: 10.2.11.17
-    proxy_protocol: true
+    backends:
+      http:
+        host: 10.2.11.17
+        proxy_protocol: true
+      https:
+        host: 10.2.11.17
+        proxy_protocol: true
   homeassistant:
-    target: 10.2.12.2
-    #proxy_protocol: true
-    #ports:
-    #  http: 8080
-    #  https: 8443
-hosts:
-  __default__:
-    target: host.docker.internal
-    ports:
-      http: 8080
-      https: 8443
+    backends:
+      http:
+        host: 10.2.12.2
+        #proxy_protocol: true
+        #port: 8080
+      https:
+        host: 10.2.12.2
+        #proxy_protocol: true
+        #port: 8443
+  spaceage-website:
+    backends:
+      http:
+        host: spaceage-website
+      https:
+        host: spaceage-website
+  website:
+    backends:
+      http:
+        host: website
+      https:
+        host: website
 
+hosts:
   # Home network
   grafana.foxden.network:
-    target: grafana
+    template: grafana
   nas.foxden.network:
-    target: nas
+    template: nas
   dav.foxden.network:
-    target: nas
+    template: nas
   homeassistant.foxden.network:
-    target: homeassistant
+    template: homeassistant
 
   # SpaceAge
   api.spaceage.mp:
-    target: spaceage-web
+    template: spaceage-web
   tts.spaceage.mp:
-    target: spaceage-web
+    template: spaceage-web
   spaceage.mp:
-    target: spaceage-website # Direct host mapping
+    template: spaceage-website
   www.spaceage.mp:
-    target: spaceage-website # Direct host mapping
+    template: spaceage-website
 
   # foxCaves
   foxcav.es:
-    target: foxcaves
+    template: foxcaves
   www.foxcav.es:
-    target: foxcaves
+    template: foxcaves
   f0x.es:
-    target: foxcaves
+    template: foxcaves
   www.f0x.es:
-    target: foxcaves
+    template: foxcaves
 
   xmppshare.f0x.es:
-    target: prosody
-    ports:
-      http: 80
-      https: 5281
+    backends:
+      http:
+        host: prosody
+        port: 80
+      https:
+        host: prosody
+        port: 5281
 
   # Personal website
   doridian.de:
-    target: website # Direct host mapping
+    template: website
   www.doridian.de:
-    target: website # Direct host mapping
+    template: website
   doridian.net:
-    target: website # Direct host mapping
+    template: website
   www.doridian.net:
-    target: website # Direct host mapping
+    template: website
 
   git.foxden.network:
-    target: git
+    template: git
