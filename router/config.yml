@@ -100,7 +100,15 @@ hosts:
   www.foxcav.es:
     template: foxcaves
   f0x.es:
-    template: foxcaves
+    backends:
+      http:
+        host: well-known-router
+        proxy_protocol: true
+        port: 8001
+      https:
+        host: 10.3.10.1
+        proxy_protocol: true
+        port: 8443
   www.f0x.es:
     template: foxcaves
 

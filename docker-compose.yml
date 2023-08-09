@@ -10,6 +10,7 @@ services:
     - website:website
     - spaceage-website:spaceage-website
     - prosody:prosody
+    - well-known-router:well-known-router
     extra_hosts:
     - host.docker.internal:host-gateway
     dns:
@@ -17,6 +18,13 @@ services:
     networks:
       default:
         ipv4_address: 172.18.100.1
+  well-known-router:
+    build: well-known-router
+    restart: always
+    links:
+    - prosody:prosody
+    dns:
+    - 108.61.10.10
   syncthing:
     image: linuxserver/syncthing:latest
     restart: always
