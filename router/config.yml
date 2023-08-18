@@ -111,14 +111,6 @@ hosts:
   www.f0x.es:
     template: foxcaves
 
-  xmppshare.f0x.es:
-    http:
-      host: prosody
-      port: 80
-    https:
-      host: prosody
-      port: 5281
-
   # Personal website
   doridian.de:
     template: website
