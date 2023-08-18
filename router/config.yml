@@ -7,7 +7,7 @@ defaults:
       host: host.docker.internal
       port: 443
 templates:
-  nas:
+  bengalfox:
     http:
       host: 10.2.11.1
       proxy_protocol: true
@@ -78,9 +78,9 @@ hosts:
   grafana.foxden.network:
     template: grafana
   nas.foxden.network:
-    template: nas
+    template: bengalfox
   dav.foxden.network:
-    template: nas
+    template: bengalfox
   homeassistant.foxden.network:
     template: homeassistant
 
