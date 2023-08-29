@@ -9,6 +9,7 @@ services:
     links:
     - website:website
     - spaceage-website:spaceage-website
+    - prosody:prosody
     - well-known-router:well-known-router
     extra_hosts:
     - host.docker.internal:host-gateway
@@ -20,6 +21,8 @@ services:
   well-known-router:
     build: well-known-router
     restart: always
+    links:
+    - prosody:prosody
     dns:
     - 108.61.10.10
   syncthing:
@@ -65,6 +68,67 @@ services:
     volumes:
     - spaceage_website_config:/config
     - spaceage_website_data:/data
+  prosody:
+    build: prosody
+    restart: always
+    hostname: f0x.es
+    dns:
+    - 108.61.10.10
+    ports:
+    - 5222:5222
+    - 5269:5269
+    - 5281:5281
+    environment:
+      DOMAIN: f0x.es
+      TZ: America/Los_Angeles
+    volumes:
+    - prosody_config:/usr/local/etc/prosody
+    - prosody_letsencrypt:/etc/letsencrypt
+    - prosody_data:/usr/local/var/lib/prosody
+  slidcord:
+    image: nicocool84/slidcord:master
+    restart: always
+    hostname: discord.f0x.es
+    dns:
+    - 108.61.10.10
+    command:
+    - "--server"
+    - "f0x.es"
+    - "--user-jid-validator"
+    - ".*@f0x.es"
+    - "--jid"
+    - "discord.f0x.es"
+    - "--secret"
+    - "${SLIDCORD_SECRET}"
+    links:
+    - prosody:f0x.es
+    - prosody:xmppshare.f0x.es
+    environment:
+      TZ: America/Los_Angeles
+    volumes:
+    - slidcord_data:/var/lib/slidge
+  slidgram:
+    image: nicocool84/slidgram:master
+    restart: always
+    hostname: telegram.f0x.es
+    dns:
+    - 108.61.10.10
+    command:
+    - "--server"
+    - "f0x.es"
+    - "--user-jid-validator"
+    - ".*@f0x.es"
+    - "--jid"
+    - "telegram.f0x.es"
+    - "--secret"
+    - "${SLIDGRAM_SECRET}"
+    links:
+    - prosody:f0x.es
+    - prosody:xmppshare.f0x.es
+    environment:
+      TZ: America/Los_Angeles
+    volumes:
+    - slidgram_data:/var/lib/slidge
   autoheal:
     restart: always
     userns_mode: host
@@ -82,6 +146,13 @@ volumes:
 
   spaceage_website_config: {}
   spaceage_website_data: {}
+
+  prosody_config: {}
+  prosody_letsencrypt: {}
+  prosody_data: {}
+
+  slidcord_data: {}
+  slidgram_data: {}
 
 networks:
   default:
