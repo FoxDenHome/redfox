@@ -85,57 +85,6 @@ services:
     - prosody_config:/usr/local/etc/prosody
     - prosody_letsencrypt:/etc/letsencrypt
     - prosody_data:/usr/local/var/lib/prosody
-  slidcord:
-    image: nicocool84/slidcord:master
-    restart: always
-    hostname: discord.f0x.es
-    dns:
-    - 108.61.10.10
-    command:
-    - "--server"
-    - "f0x.es"
-    - "--user-jid-validator"
-    - ".*@f0x.es"
-    - "--jid"
-    - "discord.f0x.es"
-    - "--secret"
-    - "${SLIDCORD_SECRET}"
-    links:
-    - prosody:f0x.es
-    - prosody:xmppshare.f0x.es
-    environment:
-      TZ: America/Los_Angeles
-    volumes:
-    - slidcord_data:/var/lib/slidge
-  slidgram:
-    image: nicocool84/slidgram:master
-    restart: always
-    hostname: telegram.f0x.es
-    dns:
-    - 108.61.10.10
-    command:
-    - "--server"
-    - "f0x.es"
-    - "--user-jid-validator"
-    - ".*@f0x.es"
-    - "--jid"
-    - "telegram.f0x.es"
-    - "--secret"
-    - "${SLIDGRAM_SECRET}"
-    links:
-    - prosody:f0x.es
-    - prosody:xmppshare.f0x.es
-    environment:
-      TZ: America/Los_Angeles
-    volumes:
-    - slidgram_data:/var/lib/slidge
-  autoheal:
-    restart: always
-    userns_mode: host
-    image: ghcr.io/doridian/dockerheal/dockerheal:latest
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-
 
 volumes:
   syncthing_config: {}
@@ -150,9 +99,6 @@ volumes:
   prosody_config: {}
   prosody_letsencrypt: {}
   prosody_data: {}
-
-  slidcord_data: {}
-  slidgram_data: {}
 
 networks:
   default:
