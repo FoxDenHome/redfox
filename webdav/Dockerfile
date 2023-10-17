@@ -8,7 +8,3 @@ FROM caddy:latest
 COPY --from=builder /usr/bin/caddy /usr/bin/caddy
 
 COPY Caddyfile /etc/caddy/Caddyfile
-
-EXPOSE 80 443
-
-ENTRYPOINT [ "/caddy", "run", "--config", "/Caddyfile" ]
