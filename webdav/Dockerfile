@@ -1,14 +1,13 @@
-FROM alpine
+FROM caddy:builder AS builder
 
-ADD 'https://caddyserver.com/api/download?os=linux&arch=amd64&p=github.com%2Fmholt%2Fcaddy-webdav' /caddy
-RUN chmod +x /caddy
-COPY Caddyfile /Caddyfile
+RUN xcaddy build \
+    --with github.com/mholt/caddy-webdav
 
-ENV XDG_DATA_HOME=/data
-VOLUME /data
+FROM caddy:latest
 
-ENV XDG_CONFIG_HOME=/config
-VOLUME /config
+COPY --from=builder /usr/bin/caddy /usr/bin/caddy
+
+COPY Caddyfile /etc/caddy/Caddyfile
 
 EXPOSE 80 443
 
