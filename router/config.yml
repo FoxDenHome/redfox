@@ -72,6 +72,11 @@ templates:
       host: website
     https:
       host: website
+  webdav:
+    http:
+      host: webdav
+    https:
+      host: webdav
 
 hosts:
   # Home network
