@@ -88,9 +88,8 @@ hosts:
     template: bengalfox
   homeassistant.foxden.network:
     template: homeassistant
-    target: homeassistant
   syncthing.doridian.net:
-    target: webdav
+    template: webdav
 
   # SpaceAge
   api.spaceage.mp:
