@@ -92,8 +92,6 @@ hosts:
     template: webdav
   htpl.foxden.network:
     template: hashtopolis
-  ftcr.foxden.network:
-    template: hashtopolis
 
   # SpaceAge
   api.spaceage.mp:
