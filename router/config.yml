@@ -46,7 +46,7 @@ templates:
     https:
       host: 10.3.10.2
       proxy_protocol: true
-  s3:
+  hashtopolis:
     http:
       host: 10.2.11.17
       proxy_protocol: true
@@ -90,6 +90,8 @@ hosts:
     template: homeassistant
   syncthing.doridian.net:
     template: webdav
+  htpl.foxden.network:
+    template: hashtopolis
 
   # SpaceAge
   api.spaceage.mp:
