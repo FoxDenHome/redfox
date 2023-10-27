@@ -53,6 +53,13 @@ templates:
     https:
       host: 10.2.11.17
       proxy_protocol: true
+  fitcrack:
+    http:
+      host: 10.2.11.18
+      proxy_protocol: true
+    https:
+      host: 10.2.11.18
+      proxy_protocol: true
   homeassistant:
     http:
       host: 10.2.12.2
@@ -92,6 +99,8 @@ hosts:
     template: webdav
   htpl.foxden.network:
     template: hashtopolis
+  ftcr.foxden.network:
+    template: fitcrack
 
   # SpaceAge
   api.spaceage.mp:
