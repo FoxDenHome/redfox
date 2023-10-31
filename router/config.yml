@@ -103,13 +103,13 @@ hosts:
     template: fitcrack
 
   # SpaceAge
-  api.spaceage.mp:
+  api.spaceage.doridian.net:
     template: spaceage-web
-  tts.spaceage.mp:
+  tts.spaceage.doridian.net:
     template: spaceage-web
-  spaceage.mp:
+  spaceage.doridian.net:
     template: spaceage-website
-  www.spaceage.mp:
+  www.spaceage.doridian.net:
     template: spaceage-website
 
   # foxCaves
