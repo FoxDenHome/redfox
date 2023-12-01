@@ -10,8 +10,6 @@ services:
     - webdav:webdav
     - website:website
     - spaceage-website:spaceage-website
-    - prosody:prosody
-    - well-known-router:well-known-router
     extra_hosts:
     - host.docker.internal:host-gateway
     dns:
@@ -19,13 +17,6 @@ services:
     networks:
       default:
         ipv4_address: 172.18.100.1
-  well-known-router:
-    build: well-known-router
-    restart: always
-    links:
-    - prosody:prosody
-    dns:
-    - 108.61.10.10
   syncthing:
     image: linuxserver/syncthing:latest
     restart: always
@@ -85,23 +76,6 @@ services:
     volumes:
     - spaceage_website_config:/config
     - spaceage_website_data:/data
-  prosody:
-    build: prosody
-    restart: always
-    hostname: f0x.es
-    dns:
-    - 108.61.10.10
-    ports:
-    - 5222:5222
-    - 5269:5269
-    - 5281:5281
-    environment:
-      DOMAIN: f0x.es
-      TZ: America/Los_Angeles
-    volumes:
-    - prosody_config:/usr/local/etc/prosody
-    - prosody_letsencrypt:/etc/letsencrypt
-    - prosody_data:/usr/local/var/lib/prosody
   autoheal:
     restart: always
     userns_mode: host
@@ -122,10 +96,6 @@ volumes:
 
   spaceage_website_config: {}
   spaceage_website_data: {}
-
-  prosody_config: {}
-  prosody_letsencrypt: {}
-  prosody_data: {}
 
 networks:
   default:
