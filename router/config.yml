@@ -53,13 +53,6 @@ templates:
     https:
       host: 10.2.11.17
       proxy_protocol: true
-  fitcrack:
-    http:
-      host: 10.2.11.18
-      proxy_protocol: true
-    https:
-      host: 10.2.11.18
-      proxy_protocol: true
   homeassistant:
     http:
       host: 10.2.12.2
@@ -79,6 +72,11 @@ templates:
       host: 10.3.10.10
     https:
       host: 10.3.10.10
+  syncthing:
+    http:
+      host: 10.2.11.2
+    https:
+      host: 10.2.11.2
 
 hosts:
   # Home network
@@ -90,12 +88,10 @@ hosts:
     template: bengalfox
   homeassistant.foxden.network:
     template: homeassistant
-  syncthing.doridian.net:
-    template: webdav
+  syncthing.foxden.network:
+    template: syncthing
   htpl.foxden.network:
     template: hashtopolis
-  ftcr.foxden.network:
-    template: fitcrack
 
   # SpaceAge
   api.spaceage.doridian.net:
