@@ -71,19 +71,14 @@ templates:
       #port: 8443
   spaceage-website:
     http:
-      host: spaceage-website
+      host: 10.3.10.9
     https:
-      host: spaceage-website
+      host: 10.3.10.9
   website:
     http:
-      host: website
+      host: 10.3.10.10
     https:
-      host: website
-  webdav:
-    http:
-      host: webdav
-    https:
-      host: webdav
+      host: 10.3.10.10
 
 hosts:
   # Home network
