@@ -77,6 +77,11 @@ templates:
       host: 10.2.11.2
     https:
       host: 10.2.11.2
+  bengalfox-syncthing:
+    http:
+      host: 10.2.11.15
+    https:
+      host: 10.2.11.15
 
 hosts:
   # Home network
@@ -90,6 +95,8 @@ hosts:
     template: homeassistant
   syncthing.foxden.network:
     template: syncthing
+  bengalfox-syncthing.foxden.network:
+    template: bengalfox-syncthing
   htpl.foxden.network:
     template: hashtopolis
 
