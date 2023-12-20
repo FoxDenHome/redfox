@@ -5,10 +5,14 @@ network:
             accept-ra: true
             dhcp4: false
             dhcp6: true
+            match:
+                macaddress: 56:00:04:b1:d2:e3
+            set-name: enp1s0
             addresses:
             - 2a0e:8f02:21c0::e621/48
             - 2a0e:7d44:f000::e621/48
-            - 66.42.76.73/23
+            - 144.202.81.146/23
             routes:
             - to: default
-              via: 66.42.76.1
+              via: 144.202.80.1
+
