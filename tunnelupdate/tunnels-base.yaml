@@ -3,20 +3,20 @@ network:
     router-a-ipv6:
       addresses:
       - 2a0e:7d44:f000:a::1/64
-      local: 66.42.71.230
+      local: 144.202.81.146
       mode: sit
       mtu: 1480
-      remote: 1.2.3.4
+      remote: 127.0.1.1
       routes:
       - to: 2a0e:7d44:f00a::/48
         via: 2a0e:7d44:f000:a::2
     router-b-ipv6:
       addresses:
       - 2a0e:7d44:f000:b::1/64
-      local: 66.42.71.230
+      local: 144.202.81.146
       mode: sit
       mtu: 1480
-      remote: 2.3.4.5
+      remote: 127.0.2.1
       routes:
       - to: 2a0e:7d44:f00b::/48
         via: 2a0e:7d44:f000:b::2
