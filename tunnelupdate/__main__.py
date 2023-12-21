@@ -26,6 +26,16 @@ NETPLAN_FILE = getenv("NETPLAN_FILE", join(dirname(__file__), "./tunnels-base.ym
 IP_ARGS = set(["myip","ip"])
 
 class HttpHandler(BaseHTTPRequestHandler):
+    def send_ok_response(self, body: str):
+        body_data = body.encode("utf-8")
+
+        self.send_response(200, "OK")
+        self.send_header("Content-Type", "text/plain")
+        self.send_header("Content-Length", len(body_data))
+        self.end_headers()
+
+        self.wfile.write(body_data)
+
     def do_GET(self):
         try:
             _, args = self.parse_url()
@@ -65,9 +75,7 @@ class HttpHandler(BaseHTTPRequestHandler):
                     break
 
             if tunnel_config["remote"] == set_ip and was_primary == is_primary:
-                self.send_response(200, "OK")
-                self.end_headers()
-                self.wfile.write(f"nochg {set_ip}".encode("utf-8"))
+                self.send_ok_response(f"nochg {set_ip}")
                 return
 
             if is_primary and not was_primary:
@@ -96,9 +104,7 @@ class HttpHandler(BaseHTTPRequestHandler):
             with open(NETPLAN_FILE, "w") as f:
                 safe_dump(file, f)
 
-            self.send_response(200, "OK")
-            self.end_headers()
-            self.wfile.write(f"good {set_ip}".encode("utf-8"))
+            self.send_ok_response(f"good {set_ip}")
         except:
             print_exc()
             self.send_error(500, "Internal Server Error")
