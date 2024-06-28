@@ -7,6 +7,7 @@ from sys import exit
 from yaml import safe_load, safe_dump
 from os.path import join, dirname
 from os import getenv
+from netplan import convert_netplan
 
 
 IDENTS = {}
@@ -103,6 +104,7 @@ class HttpHandler(BaseHTTPRequestHandler):
             tunnel_config["remote"] = set_ip
             with open(NETPLAN_FILE, "w") as f:
                 safe_dump(file, f)
+            convert_netplan(file)
 
             self.send_ok_response(f"good {set_ip}")
         except:
