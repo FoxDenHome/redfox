@@ -44,10 +44,10 @@ ConfigureWithoutCarrier=yes
 """
         # 10-netplan-router-a-ipv6.netdev
         # 10-netplan-router-a-ipv6.network
-        with open(f"./etc/systemd/network/10-netplan-{name}.netdev", "w") as f:
+        with open(f"/etc/systemd/network/10-netplan-{name}.netdev", "w") as f:
             f.write(netdev)
 
-        with open(f"./etc/systemd/network/10-netplan-{name}.network", "w") as f:
+        with open(f"/etc/systemd/network/10-netplan-{name}.network", "w") as f:
             f.write(network)
 
 if __name__ == "__main__":
