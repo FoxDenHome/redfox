@@ -1,0 +1,14 @@
+[Match]
+Name=router-b-ipv6
+
+[Link]
+MTUBytes=1480
+
+[Network]
+LinkLocalAddressing=ipv6
+Address=2a0e:7d44:f000:b::1/64
+ConfigureWithoutCarrier=yes
+
+[Route]
+Destination=2a0e:7d44:f00b::/48
+Gateway=2a0e:7d44:f000:b::2

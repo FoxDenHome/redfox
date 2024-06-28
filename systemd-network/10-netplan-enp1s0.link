@@ -1,0 +1,6 @@
+[Match]
+PermanentMACAddress=56:00:04:b1:d2:e3
+
+[Link]
+Name=enp1s0
+WakeOnLan=off

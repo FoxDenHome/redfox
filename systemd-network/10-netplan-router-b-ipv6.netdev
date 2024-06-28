@@ -1,0 +1,9 @@
+[NetDev]
+Name=router-b-ipv6
+MTUBytes=1480
+Kind=sit
+
+[Tunnel]
+Independent=true
+Local=1.2.3.4
+Remote=1.2.3.4
