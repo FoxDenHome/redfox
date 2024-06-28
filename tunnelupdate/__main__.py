@@ -21,6 +21,8 @@ IDENTS["10.99.1.3"] = {
     "primary_route": "2a0e:7d44:f069::/48",
 }
 
+NETPLAN_FILE = getenv("NETPLAN_FILE", join(dirname(__file__), "./tunnels-base.yml"))
+
 IP_ARGS = set(["myip","ip"])
 
 class HttpHandler(BaseHTTPRequestHandler):
